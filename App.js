@@ -1,10 +1,13 @@
 const express = require("express");
-const API_KEY = require("./config/keys").API_KEY
-const API_PASS = require("./config/keys").password;
 
 const app = express();
 
 app.use(express.json({ extended: false }));
+//route
+console.log("hit")
+app.use("/api/products", require("./routes/api/products"));
+console.log("hit");
+
 
 if (process.env.NODE_ENV === "production") {
   //set static folder
