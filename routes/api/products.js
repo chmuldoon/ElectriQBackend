@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
     const url = "https://electriq-marketing-test.myshopify.com/admin/api/2020-07/products.json?"
     await fetch(url, config)
       .then((res) => res.json())
-      .then((result) => res.json(result.products))
+      .then((result) => res.json(result))
       .catch((err) => res.json({ msg: "Products not found" }));
   } catch (err) {
     console.error(err.message);
