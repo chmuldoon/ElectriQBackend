@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const fetch = require("node-fetch");
+const cors = require("cors");
 const API_KEY = require("../../config/keys").API_KEY
 const API_PASS = require("../../config/keys").password;
 
-router.get("/", async (req, res) => {
+router.get("/", cors(), async (req, res) => {
   //sets base64 key and adds it it auth header
   const base64 = Buffer.from(`${API_KEY}:${API_PASS}`).toString("base64");
   const Authorization = "Basic " + base64;
